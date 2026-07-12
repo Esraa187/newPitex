@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Production Lines | PITEX Olive Oil Manufacturing</title>
+  <meta name="description" content="Explore PITEX's full catalog of olive oil production lines — from washing and milling to extraction, storage, and automated packaging." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap grid only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Lenis (buttery smooth scroll) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.css">
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="assets/css/utilities.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <!-- Page-specific additions (hero, filter bar, product card, stats/CTA bands) -->
+  <link rel="stylesheet" href="assets/css/production-lines.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       HEADER / PRIMARY NAVIGATION (same component as index.html)
+       ========================================================= -->
+  <header class="site-header" id="siteHeader" data-header>
+    <div class="container-custom site-header__inner">
+
+      <nav class="site-header__nav--primary" aria-label="Primary">
+        <ul class="site-header__list">
+
+          <li class="site-header__item">
+            <a href="index.html#about" class="site-header__link" data-nav-link>
+              Home
+              <span class="site-header__underline" aria-hidden="true"></span>
+            </a>
+          </li>
+
+          <li class="site-header__item">
+            <a href="index.html#features" class="site-header__link" data-nav-link>
+              About
+              <span class="site-header__underline" aria-hidden="true"></span>
+            </a>
+          </li>
+
+          <li class="site-header__item site-header__item--has-mega" data-mega-item>
+            <button
+              type="button"
+              class="site-header__link site-header__link--trigger"
+              aria-expanded="false"
+              aria-controls="solutionsMega"
+              data-mega-trigger
+            >
+              Solutions
+              <span class="site-header__underline" aria-hidden="true"></span>
+              <i class="bi bi-chevron-down site-header__chevron" aria-hidden="true"></i>
+            </button>
+
+            <div class="mega-menu glass-card" id="solutionsMega" data-mega-panel role="menu" aria-label="Solutions">
+              <div class="mega-menu__grid">
+                <a href="index.html#machinery" class="mega-menu__item" role="menuitem">
+                  <span class="mega-menu__icon" aria-hidden="true"><i class="bi bi-droplet-half"></i></span>
+                  <span class="mega-menu__title">Washing &amp; Defoliation</span>
+                  <span class="mega-menu__text">Precision cleaning lines that protect yield from the very first stage.</span>
+                </a>
+                <a href="index.html#machinery" class="mega-menu__item" role="menuitem">
+                  <span class="mega-menu__icon" aria-hidden="true"><i class="bi bi-gear-wide-connected"></i></span>
+                  <span class="mega-menu__title">Milling &amp; Malaxation</span>
+                  <span class="mega-menu__text">Stainless-steel units engineered for consistent, high-quality paste.</span>
+                </a>
+                <a href="index.html#machinery" class="mega-menu__item" role="menuitem">
+                  <span class="mega-menu__icon" aria-hidden="true"><i class="bi bi-funnel"></i></span>
+                  <span class="mega-menu__title">Decanting &amp; Separation</span>
+                  <span class="mega-menu__text">Polished separation systems built for maximum extraction efficiency.</span>
+                </a>
+              </div>
+              <div class="mega-menu__footer">
+                <a href="production-lines.html" class="link-arrow">
+                  View All Solutions
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <li class="site-header__item">
+            <a href="production-lines.html" class="site-header__link is-active" data-nav-link data-section="hero">
+              Production Lines
+              <span class="site-header__underline" aria-hidden="true"></span>
+            </a>
+          </li>
+
+          <li class="site-header__item">
+            <a href="index.html#contact" class="site-header__link" data-nav-link>
+              Contact
+              <span class="site-header__underline" aria-hidden="true"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="index.html" class="site-header__logo" aria-label="PITEX home" data-header-logo>
+        <img
+          src="assets/images/pitex-logo.png"
+          alt="PITEX"
+          loading="eager"
+          decoding="async"
+        />
+      </a>
+
+      <div class="site-header__actions">
+
+        <div class="lang-switch" data-lang-switch>
+          <button
+            type="button"
+            class="lang-switch__trigger"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            data-lang-trigger
+          >
+            <i class="bi bi-globe2 lang-switch__icon" aria-hidden="true"></i>
+            <span data-lang-current>EN</span>
+          </button>
+          <ul class="lang-switch__menu" role="listbox" aria-label="Select language" data-lang-menu>
+            <li role="option" aria-selected="true"><button type="button" data-lang="en">English</button></li>
+            <li role="option" aria-selected="false"><button type="button" data-lang="it">Italiano</button></li>
+            <li role="option" aria-selected="false"><button type="button" data-lang="fr">Français</button></li>
+          </ul>
+        </div>
+
+        <button type="button" class="btn-primary-custom site-header__cta" data-header-cta>
+          Request Quote
+          <span class="btn-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+        </button>
+
+        <button
+          type="button"
+          class="hamburger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobileNav"
+          data-hamburger
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE FULLSCREEN OFFCANVAS NAVIGATION -->
+  <div class="mobile-nav" id="mobileNav" data-mobile-nav aria-hidden="true">
+    <div class="mobile-nav__backdrop" data-mobile-backdrop></div>
+
+    <div class="mobile-nav__panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <div class="mobile-nav__top">
+        <a href="index.html" class="mobile-nav__logo" aria-label="PITEX home">
+          <img src="assets/images/pitex-logo.png" alt="PITEX" width="480" height="345" loading="lazy" />
+        </a>
+        <button type="button" class="mobile-nav__close" aria-label="Close menu" data-mobile-close>
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <nav class="mobile-nav__links" aria-label="Mobile primary">
+        <a href="index.html#about" class="mobile-nav__link" data-mobile-link style="--i:0">Home</a>
+        <a href="index.html#features" class="mobile-nav__link" data-mobile-link style="--i:1">About</a>
+        <a href="index.html#machinery" class="mobile-nav__link" data-mobile-link style="--i:2">Solutions</a>
+        <a href="production-lines.html" class="mobile-nav__link" data-mobile-link style="--i:3">Production Lines</a>
+        <a href="index.html#contact" class="mobile-nav__link" data-mobile-link style="--i:4">Contact</a>
+      </nav>
+
+      <div class="mobile-nav__bottom">
+        <button type="button" class="btn-primary-custom mobile-nav__cta">
+          Request Quote
+          <span class="btn-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+        </button>
+
+        <div class="mobile-nav__lang" role="group" aria-label="Select language">
+          <button type="button" data-lang="en" aria-selected="true">EN</button>
+          <button type="button" data-lang="it" aria-selected="false">IT</button>
+          <button type="button" data-lang="fr" aria-selected="false">FR</button>
+        </div>
+
+        <div class="mobile-nav__contact">
+          <a href="tel:+390551234567"><i class="bi bi-telephone-fill" aria-hidden="true"></i> +39 055 123 4567</a>
+          <a href="mailto:info@pitex-engineering.com"><i class="bi bi-envelope-fill" aria-hidden="true"></i> info@pitex-engineering.com</a>
+        </div>
+
+        <ul class="mobile-nav__social" role="list">
+          <li><a href="#" aria-label="PITEX on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a></li>
+          <li><a href="#" aria-label="PITEX on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="#" aria-label="PITEX on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a></li>
+          <li><a href="#" aria-label="PITEX on YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       HERO BANNER
+       ========================================================= -->
+  <section class="page-hero" id="hero" aria-labelledby="page-hero-title">
+    <div class="page-hero__bg" aria-hidden="true">
+      <img
+        src="assets/images/machine-milling.jpg"
+        alt=""
+        loading="eager"
+      />
+      <div class="page-hero__overlay"></div>
+    </div>
+    <div class="particle-field" id="heroParticles" aria-hidden="true"></div>
+
+    <div class="container-custom page-hero__inner">
+      <nav class="breadcrumb-custom gsap-fade-up" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        <span aria-current="page">Production Lines</span>
+      </nav>
+
+      <span class="section-badge section-badge--light gsap-fade-up">Industrial Excellence</span>
+
+      <h1 class="page-hero__title gsap-fade-up" id="page-hero-title">
+        Our <span class="text-accent">Production Lines</span>
+      </h1>
+
+      <p class="page-hero__desc gsap-fade-up">
+        Engineered for precision, PITEX offers world-class olive oil extraction and packaging solutions, blending traditional quality with cutting-edge automation.
+      </p>
+    </div>
+
+    <button type="button" class="scroll-indicator" data-scroll-indicator aria-label="Scroll to production lines">
+      <span class="scroll-indicator__mouse"><span class="scroll-indicator__wheel"></span></span>
+    </button>
+  </section>
+
+  <!-- =========================================================
+       FILTER NAVIGATION
+       ========================================================= -->
+  <div class="filter-bar" id="filterBar" data-filter-bar>
+    <div class="container-custom filter-bar__inner">
+      <div class="filter-bar__scroll" role="tablist" aria-label="Filter production lines by category">
+        <button type="button" class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button type="button" class="filter-btn" data-filter="complete" role="tab" aria-selected="false">Complete Lines</button>
+        <button type="button" class="filter-btn" data-filter="equipment" role="tab" aria-selected="false">Equipment</button>
+        <button type="button" class="filter-btn" data-filter="automation" role="tab" aria-selected="false">Automation</button>
+        <button type="button" class="filter-btn" data-filter="packaging" role="tab" aria-selected="false">Packaging</button>
+        <button type="button" class="filter-btn" data-filter="storage" role="tab" aria-selected="false">Storage</button>
+        <button type="button" class="filter-btn" data-filter="processing" role="tab" aria-selected="false">Processing</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       PRODUCTS GRID (rendered by production-lines.js from
+       products-data.js — same component as the homepage preview)
+       ========================================================= -->
+  <section class="catalog-section section-padding bg-surface" id="catalog" aria-labelledby="catalog-title">
+    <div class="container-custom">
+      <h2 class="visually-hidden" id="catalog-title">Full Production Lines Catalog</h2>
+
+      <div class="row g-4" id="productsGrid" data-products-grid aria-live="polite"></div>
+
+      <div class="load-more-wrap" data-load-more-wrap>
+        <button type="button" class="btn-outline-custom" data-load-more>
+          Load More Production Lines
+          <span class="btn-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+        </button>
+        <p class="load-more-count" data-load-more-count></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       STATISTICS
+       ========================================================= -->
+  <section class="stats-section section-padding bg-surface-alt" id="stats" aria-labelledby="stats-title">
+    <h2 class="visually-hidden" id="stats-title">PITEX by the Numbers</h2>
+    <div class="container-custom">
+      <div class="stats-band glass-card shadow-sm-custom">
+        <div class="stat-block">
+          <span class="stat-block__value" data-count-to="25" data-suffix="+">0+</span>
+          <span class="stat-block__label">Years Experience</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-block__value" data-count-to="500" data-suffix="+">0+</span>
+          <span class="stat-block__label">Production Lines Installed</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-block__value" data-count-to="100" data-suffix="%">0%</span>
+          <span class="stat-block__label">Certified Components</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CALL TO ACTION
+       ========================================================= -->
+  <section class="cta-band section-padding" id="custom-cta" aria-labelledby="cta-title">
+    <div class="particle-field" id="ctaParticles" aria-hidden="true">
+      <div class="ambient-blob ambient-blob--two"></div>
+    </div>
+    <div class="container-custom cta-band__inner">
+      <span class="section-badge section-badge--light gsap-fade-up">Custom Engineering</span>
+      <h2 class="section-title section-title--light gsap-fade-up" id="cta-title">Need a Custom Production Line?</h2>
+      <p class="section-subtitle section-subtitle--light gsap-fade-up">
+        Talk to our engineers — we'll design a bespoke line tailored to your exact yield, footprint, and automation goals.
+      </p>
+      <div class="cta-band__actions gsap-fade-up">
+        <button type="button" class="btn-light-custom">
+          Request Quote
+          <span class="btn-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER (same component as index.html)
+       ========================================================= -->
+  <footer class="site-footer" id="site-footer">
+    <div class="footer-bg" aria-hidden="true">
+      <div class="footer-blueprint"></div>
+      <div class="particle-field" id="footerParticles"></div>
+      <div class="ambient-blob footer-blob footer-blob--one"></div>
+      <div class="ambient-blob footer-blob footer-blob--two"></div>
+      <div class="footer-glass-panel" aria-hidden="true"></div>
+    </div>
+
+    <div class="container-custom footer-inner">
+
+      <div class="row g-5 footer-top">
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo-link" aria-label="PITEX home">
+              <img
+                src="assets/images/logo-white.png"
+                alt="PITEX"
+                class="footer-logo"
+                width="150" height="107"
+                loading="lazy"
+              />
+            </a>
+            <p class="footer-text footer-brand__desc">Engineering premium olive oil production lines with four decades of European precision and industrial excellence.</p>
+
+            <ul class="footer-social list-unstyled" role="list">
+              <li class="footer-social__item">
+                <a href="#" class="footer-social__link" aria-label="PITEX on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+              </li>
+              <li class="footer-social__item">
+                <a href="#" class="footer-social__link" aria-label="PITEX on Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+              </li>
+              <li class="footer-social__item">
+                <a href="#" class="footer-social__link" aria-label="PITEX on Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+              </li>
+              <li class="footer-social__item">
+                <a href="#" class="footer-social__link" aria-label="PITEX on YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+              </li>
+              <li class="footer-social__item">
+                <a href="#" class="footer-social__link" aria-label="PITEX on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-6 col-lg-3">
+          <div class="footer-col">
+            <h3 class="footer-heading">Navigation</h3>
+            <ul class="footer-links list-unstyled" role="list">
+              <li class="footer-links__item"><a href="index.html#about" class="footer-link"><i class="bi bi-chevron-right footer-link__chevron" aria-hidden="true"></i><span>Home</span></a></li>
+              <li class="footer-links__item"><a href="index.html#features" class="footer-link"><i class="bi bi-chevron-right footer-link__chevron" aria-hidden="true"></i><span>About</span></a></li>
+              <li class="footer-links__item"><a href="index.html#machinery" class="footer-link"><i class="bi bi-chevron-right footer-link__chevron" aria-hidden="true"></i><span>Solutions</span></a></li>
+              <li class="footer-links__item"><a href="production-lines.html" class="footer-link"><i class="bi bi-chevron-right footer-link__chevron" aria-hidden="true"></i><span>Production Lines</span></a></li>
+              <li class="footer-links__item"><a href="index.html#case-studies" class="footer-link"><i class="bi bi-chevron-right footer-link__chevron" aria-hidden="true"></i><span>Case Studies</span></a></li>
+              <li class="footer-links__item"><a href="index.html#contact" class="footer-link"><i class="bi bi-chevron-right footer-link__chevron" aria-hidden="true"></i><span>Contact</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-6 col-lg-3">
+          <div class="footer-col">
+            <h3 class="footer-heading">Headquarters</h3>
+            <ul class="footer-contact-list list-unstyled" role="list">
+              <li class="footer-contact-item">
+                <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+                <span class="footer-text footer-contact-text">Via dell'Industria, 12<br>Firenze, Italy</span>
+              </li>
+              <li class="footer-contact-item">
+                <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-telephone-fill"></i></span>
+                <a href="tel:+390551234567" class="footer-text footer-contact-text footer-contact-text--link">+39 055 123 4567</a>
+              </li>
+              <li class="footer-contact-item">
+                <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-envelope-fill"></i></span>
+                <a href="mailto:info@pitex-engineering.com" class="footer-text footer-contact-text footer-contact-text--link">info@pitex-engineering.com</a>
+              </li>
+              <li class="footer-contact-item">
+                <span class="footer-contact-icon" aria-hidden="true"><i class="bi bi-clock-fill"></i></span>
+                <span class="footer-text footer-contact-text">Mon – Fri, 8:00 – 18:00 CET</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="footer-col">
+            <h3 class="footer-heading">Industrial Excellence</h3>
+            <p class="footer-text footer-brand__desc">Certified ISO 9001:2015 for manufacturing and precision engineering.</p>
+
+            <div class="footer-badge">
+              <span class="footer-badge__icon" aria-hidden="true"><i class="bi bi-patch-check-fill"></i></span>
+              <div>
+                <p class="footer-badge__title">ISO 9001:2015</p>
+                <p class="footer-badge__text">Certified Manufacturing</p>
+              </div>
+            </div>
+
+            <button type="button" class="btn-light-custom footer-cta">
+              Request Consultation
+              <span class="btn-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 PITEX. All Rights Reserved.</p>
+        <nav class="footer-legal" aria-label="Legal">
+          <a href="#" class="footer-legal-link">Privacy Policy</a>
+          <a href="#" class="footer-legal-link">Terms &amp; Conditions</a>
+          <a href="#" class="footer-legal-link">Cookie Policy</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+
+  <!-- App -->
+  <script src="assets/js/main.js?v=versionD-insights-contact"></script>
+  <script src="assets/js/header.js"></script>
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/production-lines.js"></script>
+</body>
+</html>

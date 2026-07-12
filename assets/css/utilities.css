@@ -1,0 +1,408 @@
+/* =========================================================================
+   PITEX Design System — Utilities
+   Reusable, composable classes. No section-specific rules belong here.
+   ========================================================================= */
+
+/* ---------- Design Tokens ---------- */
+:root {
+  /* Brand */
+  --primary: #155ba9;
+  --primary-light: #3f86d1;
+  --primary-dark: #0d4f94;
+  --primary-rgb: 21, 91, 169;
+
+  /* Neutrals */
+  --secondary: #0f172a;
+  --text: #1e293b;
+  --text-light: #64748b;
+  --border: #e5e7eb;
+  --bg: #ffffff;
+  --bg-light: #f8fafc;
+
+  /* Elevation */
+  --shadow-sm: 0 4px 14px rgba(15, 23, 42, 0.06);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 30px 80px rgba(15, 23, 42, 0.14);
+  --shadow-primary: 0 16px 40px rgba(var(--primary-rgb), 0.28);
+
+  /* Radius */
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+
+  /* Type scale */
+  --fs-badge: 0.875rem;
+  --fs-subtitle: 1.125rem;
+  --fs-card-title: 1.375rem;
+  --fs-heading: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --fs-paragraph: 1.125rem;
+
+  /* Motion */
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.25s;
+  --dur-mid: 0.45s;
+  --dur-slow: 0.8s;
+
+  /* Layout */
+  --container-max: 1220px;
+  --section-pad-y: clamp(4rem, 3rem + 4vw, 7.5rem);
+}
+
+/* ---------- Reset touches ---------- */
+* { box-sizing: border-box; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; }
+
+/* ---------- Container ---------- */
+.container-custom {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* ---------- Section rhythm ---------- */
+.section-padding { padding-block: var(--section-pad-y); }
+.bg-surface { background: var(--bg); }
+.bg-surface-alt { background: var(--bg-light); }
+
+/* ---------- Section header (badge + title + subtitle) ---------- */
+.section-header { max-width: 720px; }
+.section-header--center { margin-inline: auto; text-align: center; }
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: var(--fs-badge);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--primary);
+  background: rgba(var(--primary-rgb), 0.07);
+  border: 1px solid rgba(var(--primary-rgb), 0.18);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+}
+.section-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: var(--fs-heading);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--secondary);
+  margin: 1rem 0 0;
+}
+
+.section-subtitle {
+  font-size: var(--fs-subtitle);
+  color: var(--text-light);
+  margin-top: 1.1rem;
+  line-height: 1.65;
+}
+
+.section-description {
+  font-size: var(--fs-paragraph);
+  color: var(--text-light);
+  line-height: 1.75;
+}
+
+/* ---------- Light-context modifiers ----------
+   Used when a section header sits on a dark/primary-colored background
+   (e.g. the machinery/solutions section) so header primitives stay
+   reusable instead of being redefined per-section. */
+.section-badge--light {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+.section-badge--light::before { background: #fff; }
+
+.section-title--light { color: #fff; }
+
+.section-subtitle--light { color: rgba(255, 255, 255, 0.78); }
+
+/* ---------- Text helpers ---------- */
+.text-primary-custom { color: var(--primary); }
+.text-secondary-custom { color: var(--secondary); }
+.eyebrow {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+/* ---------- Radius / shadow helpers ---------- */
+.radius-lg { border-radius: var(--radius-lg); }
+.radius-xl { border-radius: var(--radius-xl); }
+.shadow-soft { box-shadow: var(--shadow); }
+.shadow-sm-custom { box-shadow: var(--shadow-sm); }
+
+/* ---------- Glass ---------- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* ---------- Buttons ----------
+   Transform (lift, magnetic follow, click bounce) is owned by GSAP in
+   main.js so it can layer with pointer-tracked magnetism without fighting
+   a CSS :hover transform. CSS here handles gradient movement, glow,
+   letter-spacing and the inner highlight sheen — none of which touch
+   `transform`, so the two systems stay conflict-free. */
+.btn-primary-custom {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  color: #fff;
+  background-image: linear-gradient(115deg, var(--primary-light) 0%, var(--primary) 35%, var(--primary-dark) 100%);
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+  border: none;
+  padding: 0.9rem 1.7rem;
+  border-radius: 999px;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(var(--primary-rgb), 0.32);
+  transition:
+    box-shadow 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    background-position 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    letter-spacing 0.8s ease;
+}
+
+/* Inner highlight sheen along the top edge */
+.btn-primary-custom::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 55%);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn-primary-custom > * { position: relative; z-index: 1; }
+
+.btn-primary-custom .btn-arrow {
+  display: inline-flex;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-primary-custom:hover {
+  box-shadow: 0 22px 50px rgba(var(--primary-rgb), 0.55), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+  background-position: 100% 0%;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+.btn-primary-custom:hover .btn-arrow { transform: translateX(7px); }
+.btn-primary-custom:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.4);
+}
+
+.btn-outline-custom {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  color: var(--secondary);
+  background: transparent;
+  border: 1.5px solid var(--border);
+  padding: 0.85rem 1.65rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 1s ease, background 1s ease, letter-spacing 0.8s ease, box-shadow 1s ease;
+}
+.btn-outline-custom:hover {
+  border-color: var(--primary);
+  background: rgba(var(--primary-rgb), 0.06);
+  color: var(--secondary);
+  letter-spacing: 0.02em;
+  box-shadow: 0 14px 34px rgba(var(--primary-rgb), 0.18);
+}
+
+/* White-on-primary variant — for CTAs sitting on the primary-colored
+   footer/machinery-style backgrounds. Same lift/ripple/magnetic
+   machinery as .btn-primary-custom (see main.js selectors), just
+   recolored and with a white-outline focus ring since the surrounding
+   surface is already the brand blue. */
+.btn-light-custom {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  color: var(--primary);
+  background: #fff;
+  border: none;
+  padding: 0.9rem 1.7rem;
+  border-radius: 999px;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(3, 13, 26, 0.22);
+  transition:
+    box-shadow 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    letter-spacing 0.8s ease;
+}
+.btn-light-custom > * { position: relative; z-index: 1; }
+.btn-light-custom .btn-arrow {
+  display: inline-flex;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-light-custom:hover {
+  box-shadow: 0 22px 50px rgba(3, 13, 26, 0.3), 0 0 0 6px rgba(255, 255, 255, 0.14);
+  letter-spacing: 0.02em;
+}
+.btn-light-custom:hover .btn-arrow { transform: translateX(7px); }
+.btn-light-custom:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.35);
+}
+/* Ripple contrast: the shared .ripple recipe is white-on-white here, so
+   this variant needs its own tinted ripple. */
+.btn-light-custom .ripple { background: rgba(var(--primary-rgb), 0.22); }
+
+/* ripple span injected by JS */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  transform: scale(0);
+  animation: ripple-anim 0.6s var(--ease-premium);
+  pointer-events: none;
+}
+@keyframes ripple-anim {
+  to { transform: scale(3.2); opacity: 0; }
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-icon {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(var(--primary-rgb), 0.08);
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+.card-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: var(--fs-card-title);
+  color: var(--secondary);
+  margin: 1.25rem 0 0.6rem;
+}
+
+.card-text {
+  color: var(--text-light);
+  font-size: 0.975rem;
+  line-height: 1.65;
+}
+
+/* ---------- Links with arrow ---------- */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-top: 1.25rem;
+}
+.link-arrow svg,
+.link-arrow i { transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1); display: inline-flex; }
+.card:hover .link-arrow svg,
+.card:hover .link-arrow i,
+.link-arrow:hover svg,
+.link-arrow:hover i { transform: translateX(6px); }
+
+/* Light variant: white text with a growing underline, for arrow-links
+   sitting on photographic or dark/primary backgrounds. */
+.link-arrow--light {
+  position: relative;
+  color: #fff;
+  opacity: 0.85;
+  margin-top: 0;
+  padding-bottom: 2px;
+  transition: opacity 0.6s ease;
+}
+.link-arrow--light::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  transition: width 0.5s var(--ease-premium);
+}
+.link-arrow--light:hover,
+.solution-card:hover .link-arrow--light { opacity: 1; }
+.link-arrow--light:hover::after,
+.solution-card:hover .link-arrow--light::after { width: 100%; }
+
+/* ---------- Visually hidden (a11y) ---------- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
