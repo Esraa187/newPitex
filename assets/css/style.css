@@ -1289,7 +1289,7 @@ a.footer-contact-text--link:hover { color: #fff; }
 
 @media (max-width: 767.98px) {
   .feature-list { grid-template-columns: 1fr; gap: 1.5rem; }
-  .cert-card { position: static; margin-top: -3rem; margin-inline: auto; width: min(320px, 88%); }
+  .cert-card { position: static; margin-inline: auto; width: min(320px, 88%);  }
   .about-media__frame { margin-bottom: 0; }
   .about-media__glow { display: none; }
 
